@@ -25,10 +25,11 @@ ARG APT_INSTALL="apt-get install --no-install-recommends -y"
 
 RUN apt-get clean
 RUN apt-get update
-RUN $APT_INSTALL software-properties-common git libxml2-dev pkg-config curl wget openjdk-8-jdk libpython3-dev python3-pip python3-setuptools python3.8
+RUN $APT_INSTALL software-properties-common git libxml2-dev pkg-config curl wget openjdk-8-jdk libpython3-dev python3-pip python3-setuptools python3.8 python3.9
 RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 RUN python3.8 -m pip install numpy 'pyarrow<3.0.0' pandas scipy xmlrunner
+RUN python3.9 -m pip install numpy 'pyarrow<5.0.0' pandas scipy xmlrunner plotly>=4.8
 
 RUN add-apt-repository ppa:pypy/ppa
 RUN apt update
