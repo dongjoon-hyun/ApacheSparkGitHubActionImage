@@ -31,7 +31,7 @@ RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/jav
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.8
 RUN python3.8 -m pip install numpy 'pyarrow<3.0.0' pandas scipy xmlrunner plotly>=4.8 sklearn 'mlflow>=1.0'
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9
-RUN python3.9 -m pip install numpy 'pyarrow<5.0.0' pandas scipy xmlrunner plotly>=4.8 sklearn 'mlflow>=1.0'
+RUN python3.9 -m pip install numpy pyarrow pandas scipy xmlrunner plotly>=4.8 sklearn 'mlflow>=1.0'
 
 RUN add-apt-repository ppa:pypy/ppa
 RUN apt update
