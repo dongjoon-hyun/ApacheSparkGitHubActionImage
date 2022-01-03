@@ -39,7 +39,6 @@ RUN $APT_INSTALL pypy3 gfortran libopenblas-dev liblapack-dev
 
 RUN $APT_INSTALL build-essential pypy3-dev
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | pypy3
-RUN pypy3 -m pip install -U pip setuptools
 RUN pypy3 -m pip install numpy pandas scipy coverage matplotlib
 
 RUN $APT_INSTALL gnupg ca-certificates pandoc
