@@ -29,7 +29,7 @@ RUN $APT_INSTALL software-properties-common git libxml2-dev pkg-config curl wget
 RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9
-RUN python3.9 -m pip install numpy pyarrow pandas scipy xmlrunner plotly>=4.8 sklearn 'mlflow>=1.0' coverage matplotlib
+RUN python3.9 -m pip install numpy pyarrow 'pandas<1.4.0' scipy xmlrunner plotly>=4.8 sklearn 'mlflow>=1.0' coverage matplotlib
 
 RUN add-apt-repository ppa:pypy/ppa
 RUN apt update
@@ -37,7 +37,7 @@ RUN $APT_INSTALL pypy3 gfortran libopenblas-dev liblapack-dev
 
 RUN $APT_INSTALL build-essential pypy3-dev
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | pypy3
-RUN pypy3 -m pip install numpy pandas scipy coverage matplotlib
+RUN pypy3 -m pip install numpy 'pandas<1.4.0' scipy coverage matplotlib
 
 RUN $APT_INSTALL gnupg ca-certificates pandoc
 RUN echo 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' >> /etc/apt/sources.list
