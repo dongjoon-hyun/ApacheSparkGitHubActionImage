@@ -27,6 +27,7 @@ jobs:
         with:
           push: true
           tags: dongjoon/apache-spark-github-action-image:latest
+          cache-to: type=registry,ref=dongjoon/apache-spark-github-action-image-cache:master,mode=max
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
